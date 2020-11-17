@@ -141,13 +141,6 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
-		56928B00255C5BDD00F9912A /* Challenge */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Challenge;
-			sourceTree = "<group>";
-		};
 		56CAD447254804500007C2AC /* DayJob */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +222,6 @@
 		56DA28C1252E2360007CEA3A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56928B00255C5BDD00F9912A /* Challenge */,
 				56928AFF255C5B7E00F9912A /* Menu */,
 				56CAD447254804500007C2AC /* DayJob */,
 				567D49202538B8430063EB0F /* APL */,

@@ -152,6 +152,19 @@ enum TierSecond: Int {
         }
     }
     
+    func maxLevel() -> Int {
+        switch self {
+        case .noTier:
+            return 0
+            
+        case .oneFour:
+            return 3
+            
+        case .threeSix:
+            return 5
+        }
+    }
+    
     // MARK: - Static
     static func tierList() -> [String] {
         var i = 0
