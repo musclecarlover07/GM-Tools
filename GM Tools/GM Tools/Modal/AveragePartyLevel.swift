@@ -34,7 +34,7 @@ struct AveragePartyLevel {
         tier = .noTier
     }
     
-    // MARK: Setters
+    // MARK: -Setters
     
     /// Sets the Season
     /// - Parameter newSeason: The season of the scenario being played

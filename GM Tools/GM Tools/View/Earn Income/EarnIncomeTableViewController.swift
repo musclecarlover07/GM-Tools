@@ -31,6 +31,13 @@ class EarnIncomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.delegate = self
+        
+        SystemColor.setViewBG(view: self.view)
+        SystemColor.setCollectionViwBG(for: checkCollection)
+        
+        proficiencyTxt.textColor = .black
 
         // Setting up the Picker Views
         // Builds Proficiency Picker
@@ -62,6 +69,13 @@ class EarnIncomeTableViewController: UITableViewController {
         taskModTxt.text = "\(earnIncome.taskMod)"
         numOfDaysTxt.text = "\(earnIncome.numOfDays)"
         finalResultsLbl.text = "Update Info, then hit Earn."
+        
+        proficiencyTxt.tintColor = SystemColor.backgroundColor()
+        charLevelTxt.tintColor = SystemColor.backgroundColor()
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = SystemColor.backgroundColor()
     }
     
     // MARK: - Objc Methods
@@ -71,7 +85,6 @@ class EarnIncomeTableViewController: UITableViewController {
             checkCollection.reloadData()
             numOfDaysTxt.text = "\(earnIncome.numOfDays)"
         } else if taskModTxt.isFirstResponder {
-// Set task mod in Earn Income
             earnIncome.setTaskMod(newTaskMod: Int(numOfDaysTxt.text ?? "0") ?? 0)
             checkCollection.reloadData()
             taskModTxt.text = "\(earnIncome.taskMod)"
@@ -82,7 +95,6 @@ class EarnIncomeTableViewController: UITableViewController {
     }
     
     @objc func selectPicker() {
-        
         // When the different text fields, with pickers, are the first responder
         // will help make sure that the correct value is placed in the correct
         // field. And updates the Earn Income Object
@@ -131,7 +143,7 @@ class EarnIncomeTableViewController: UITableViewController {
         checkCollection.reloadData()
     }
     
-    @IBAction func unwindToEarnIncome(_ sender: UIStoryboardSegue) {
+    @IBAction func unwindToEarnIncome(_ sender: UIStoryboardSegue) {s
         checkCollection.reloadData()
     }
     
@@ -193,8 +205,8 @@ extension EarnIncomeTableViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "checkCell", for: indexPath) as! EarnIncomeCollectionViewCell
         
-        cell.backgroundColor = .yellow
-        cell.layer.cornerRadius = 8
+        cell.checkresultTxt.textColor = .black
+        cell.resultsTxt.textColor = .black
         
         // Sets the checkResultsLbl with the value
         // if 0 then Add Check
@@ -208,12 +220,39 @@ extension EarnIncomeTableViewController: UICollectionViewDelegate, UICollectionV
         let resultStr: String = String(format: "%.2f", earnIncome.checkResults[indexPath.row])
         cell.resultsTxt.text = "\(earnIncome.daysArray[indexPath.row])" + " day(s): " + resultStr
         
-        return cell
+        return SystemColor.buildCollectionCell(cell: cell)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard proficiencyTxt.text != "Not Trained" else {
+            let alert: UIAlertController = Alert.createAlert(title: nil, message: "Proficinecy is required to proceed.")
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        guard earnIncome.numOfDays > 0 else {
+            let alert: UIAlertController = Alert.createAlert(title: nil, message: "At least 1 day is required to proceed.")
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         guard let cell: UICollectionViewCell = checkCollection.cellForItem(at: indexPath) else { return }
         performSegue(withIdentifier: "addCheck", sender: cell)
     }
     
+}
+
+
+extension UITextField {
+//    func setCursor(for textField: UITextField) {
+//        let endPosition: UITextPosition = textField.endOfDocument
+//
+//    }
+    
+    func setCursorToEnd() {
+        let endPosition: UITextPosition = self.endOfDocument
+        self.selectedTextRange = self.textRange(from: endPosition, to: endPosition)
+    }
 }

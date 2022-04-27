@@ -139,6 +139,34 @@ enum TierSecond: Int {
         }
     }
     
+    func tierOptions() -> [Int] {
+        var lower: Int = 0
+        var upper: Int = 0
+        
+        switch self {
+        case .noTier:
+            lower = 0
+            upper = 0
+            
+        case .oneFour:
+            lower = 1
+            upper = 4
+            
+        case .threeSix:
+            lower = 3
+            upper = 6
+        }
+        
+        var options: [Int] = []
+        let range: Range = Range(lower...upper)
+        
+        for value in range {
+            options.append(value)
+        }
+        
+        return options
+    }
+    
     func minLevel() -> Int {
         switch self {
         case .noTier:

@@ -17,9 +17,21 @@ class MenuTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.delegate = self
+        
+        // Set background color
+        self.navigationController?.navigationBar.barTintColor = SystemColor.backgroundColor()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        SystemColor.setViewBG(view: self.view)
+        SystemColor.setCollectionViwBG(for: pathfinder1Menu)
+        SystemColor.setCollectionViwBG(for: pathfinder2Menu)
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(red: 0x96/255, green: 0xBc/255, blue: 0x7E/255, alpha: 1.0)
+    }
 }
 
 extension MenuTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -36,21 +48,20 @@ extension MenuTableViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCell", for: indexPath) as! MenuCollectionViewCell
         
-        cell.layer.cornerRadius = 10
-        cell.backgroundColor = .yellow
+        cell.menuItem.textColor = .black
         
         if collectionView == pathfinder1Menu {
             cell.menuItem.text = pathfinder1[indexPath.row]
             
-            return cell
+            return SystemColor.buildCollectionCell(cell: cell)
         } else if collectionView == pathfinder2Menu {
             cell.menuItem.text = pathfinder2[indexPath.row]
             
-            return cell
+            return SystemColor.buildCollectionCell(cell: cell)
         } else {
             cell.menuItem.text = "No Item"
             
-            return cell
+            return SystemColor.buildCollectionCell(cell: cell)
         }
     }
     
@@ -63,7 +74,7 @@ extension MenuTableViewController: UICollectionViewDelegate, UICollectionViewDat
             }
         } else if collectionView == pathfinder2Menu {
             if indexPath.row == 0 {
-                
+                performSegue(withIdentifier: "challengePoints", sender: nil)
             } else {
                 performSegue(withIdentifier: "earnIncome", sender: nil)
             }
@@ -76,10 +87,5 @@ extension MenuTableViewController: UICollectionViewDelegate, UICollectionViewDat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        
-        
-        
-        
-        
     }
 }

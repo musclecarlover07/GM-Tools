@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562AF1F7256B3F9800B7B131 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AF1F6256B3F9800B7B131 /* SystemColor.swift */; };
 		564C407C253828890032D95A /* APLTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C407B253828890032D95A /* APLTableViewController.swift */; };
+		5663CEA425682E6F008E75D7 /* LevelBumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663CEA325682E6F008E75D7 /* LevelBumpViewController.swift */; };
+		5663CEA925683595008E75D7 /* BulletList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663CEA825683595008E75D7 /* BulletList.swift */; };
+		5663CEAE25690233008E75D7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663CEAD25690233008E75D7 /* Alert.swift */; };
 		567D49222538B8B00063EB0F /* APLCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567D49212538B8B00063EB0F /* APLCollectionViewCell.swift */; };
 		567E81AA253764830069BD58 /* AveragePartyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E81A9253764830069BD58 /* AveragePartyLevel.swift */; };
 		567E81AF253768C90069BD58 /* Tier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E81AE253768C90069BD58 /* Tier.swift */; };
@@ -33,6 +37,9 @@
 		56ED40BB2539819D000A8634 /* AddLevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ED40BA2539819D000A8634 /* AddLevelTableViewController.swift */; };
 		56ED40C0253A419F000A8634 /* DayJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ED40BF253A419F000A8634 /* DayJob.swift */; };
 		56ED40C5253FF0C7000A8634 /* MoneyCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ED40C4253FF0C7000A8634 /* MoneyCalc.swift */; };
+		56F7FD582564F6B30066C8A8 /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7FD572564F6B30066C8A8 /* ChallengeCollectionViewCell.swift */; };
+		56F7FD5E2564F82A0066C8A8 /* ChallengePointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7FD5D2564F82A0066C8A8 /* ChallengePointsTableViewController.swift */; };
+		56F7FD66256612B80066C8A8 /* AddChallengeLvlTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7FD65256612B80066C8A8 /* AddChallengeLvlTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		562AF1F6256B3F9800B7B131 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
 		564C407B253828890032D95A /* APLTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APLTableViewController.swift; sourceTree = "<group>"; };
+		5663CEA325682E6F008E75D7 /* LevelBumpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelBumpViewController.swift; sourceTree = "<group>"; };
+		5663CEA825683595008E75D7 /* BulletList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletList.swift; sourceTree = "<group>"; };
+		5663CEAD25690233008E75D7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		567D49212538B8B00063EB0F /* APLCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APLCollectionViewCell.swift; sourceTree = "<group>"; };
 		567E81A9253764830069BD58 /* AveragePartyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePartyLevel.swift; sourceTree = "<group>"; };
 		567E81AE253768C90069BD58 /* Tier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tier.swift; sourceTree = "<group>"; };
@@ -85,6 +96,9 @@
 		56ED40BA2539819D000A8634 /* AddLevelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevelTableViewController.swift; sourceTree = "<group>"; };
 		56ED40BF253A419F000A8634 /* DayJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayJob.swift; sourceTree = "<group>"; };
 		56ED40C4253FF0C7000A8634 /* MoneyCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalc.swift; sourceTree = "<group>"; };
+		56F7FD572564F6B30066C8A8 /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
+		56F7FD5D2564F82A0066C8A8 /* ChallengePointsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePointsTableViewController.swift; sourceTree = "<group>"; };
+		56F7FD65256612B80066C8A8 /* AddChallengeLvlTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChallengeLvlTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +229,9 @@
 				567E81B3253768D40069BD58 /* Season.swift */,
 				56ED40BF253A419F000A8634 /* DayJob.swift */,
 				56ED40C4253FF0C7000A8634 /* MoneyCalc.swift */,
+				5663CEA825683595008E75D7 /* BulletList.swift */,
+				5663CEAD25690233008E75D7 /* Alert.swift */,
+				562AF1F6256B3F9800B7B131 /* SystemColor.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -222,12 +239,24 @@
 		56DA28C1252E2360007CEA3A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56928AFF255C5B7E00F9912A /* Menu */,
-				56CAD447254804500007C2AC /* DayJob */,
 				567D49202538B8430063EB0F /* APL */,
+				56F7FD5C2564F7E40066C8A8 /* Challenge Points */,
+				56CAD447254804500007C2AC /* DayJob */,
 				567D491F2538B82E0063EB0F /* Earn Income */,
+				56928AFF255C5B7E00F9912A /* Menu */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		56F7FD5C2564F7E40066C8A8 /* Challenge Points */ = {
+			isa = PBXGroup;
+			children = (
+				56F7FD572564F6B30066C8A8 /* ChallengeCollectionViewCell.swift */,
+				56F7FD5D2564F82A0066C8A8 /* ChallengePointsTableViewController.swift */,
+				56F7FD65256612B80066C8A8 /* AddChallengeLvlTableViewController.swift */,
+				5663CEA325682E6F008E75D7 /* LevelBumpViewController.swift */,
+			);
+			path = "Challenge Points";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,19 +394,26 @@
 				56928AF5255B7EC300F9912A /* MenuTableViewController.swift in Sources */,
 				56DA28D22530A910007CEA3A /* CheckUpdateTableViewController.swift in Sources */,
 				56DA28CD252F7BFF007CEA3A /* EarnIncomeCollectionViewCell.swift in Sources */,
+				5663CEA925683595008E75D7 /* BulletList.swift in Sources */,
 				567E81AA253764830069BD58 /* AveragePartyLevel.swift in Sources */,
 				567E81B4253768D40069BD58 /* Season.swift in Sources */,
 				56928B02255C5BED00F9912A /* Challenge.swift in Sources */,
+				5663CEAE25690233008E75D7 /* Alert.swift in Sources */,
 				56DA28C3252E23A4007CEA3A /* EarnIncomeTableViewController.swift in Sources */,
 				567E81AF253768C90069BD58 /* Tier.swift in Sources */,
 				56928AF0255B6C1A00F9912A /* MenuCollectionViewCell.swift in Sources */,
 				56DA28B0252E1DCB007CEA3A /* EarnIncome.swift in Sources */,
+				56F7FD582564F6B30066C8A8 /* ChallengeCollectionViewCell.swift in Sources */,
 				56DA28B9252E1E3E007CEA3A /* Proficiency.swift in Sources */,
 				56CAD4492548047A0007C2AC /* DayJobTableViewController.swift in Sources */,
 				56DA2880252E1DA0007CEA3A /* ViewController.swift in Sources */,
 				564C407C253828890032D95A /* APLTableViewController.swift in Sources */,
+				5663CEA425682E6F008E75D7 /* LevelBumpViewController.swift in Sources */,
+				562AF1F7256B3F9800B7B131 /* SystemColor.swift in Sources */,
 				56ED40BB2539819D000A8634 /* AddLevelTableViewController.swift in Sources */,
+				56F7FD5E2564F82A0066C8A8 /* ChallengePointsTableViewController.swift in Sources */,
 				56DA287C252E1DA0007CEA3A /* AppDelegate.swift in Sources */,
+				56F7FD66256612B80066C8A8 /* AddChallengeLvlTableViewController.swift in Sources */,
 				56ED40C5253FF0C7000A8634 /* MoneyCalc.swift in Sources */,
 				567D49222538B8B00063EB0F /* APLCollectionViewCell.swift in Sources */,
 				56DA287E252E1DA0007CEA3A /* SceneDelegate.swift in Sources */,

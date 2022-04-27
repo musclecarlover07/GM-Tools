@@ -12,18 +12,31 @@ class DayJobTableViewController: UITableViewController {
     @IBOutlet weak var checkTxt: UITextField!
     @IBOutlet weak var boostSwitch: UISwitch!
     @IBOutlet weak var resultsLbl: UILabel!
+    @IBOutlet weak var switchView: UIView!
     
     var dayJob: DayJob = DayJob()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.delegate = self
+        
+        SystemColor.setViewBG(view: self.view)
+        SystemColor.setViewBG(view: switchView)
+        
+        boostSwitch.onTintColor = UIColor(red: 0xE7/255, green: 0xD3/255, blue: 0x13/255, alpha: 1.0)
 
+//        boostSwitch.onTintColor = .blue
         // Sets the keyboard toolbar
         let keyboardToolbar: UIToolbar = UIToolbar().dismissKeyboard(dismiss: #selector(addCheck))
         checkTxt.inputAccessoryView = keyboardToolbar
         
         // Adds target to swictch
         boostSwitch.addTarget(self, action: #selector(self.updateBoost), for: .valueChanged)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = SystemColor.backgroundColor()
     }
     
     // MARK: - Objc Methods

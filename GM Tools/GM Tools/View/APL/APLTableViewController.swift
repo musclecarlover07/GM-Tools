@@ -28,7 +28,13 @@ class APLTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.delegate = self
+        
+        // Background
+        SystemColor.setViewBG(view: self.view)
+        SystemColor.setCollectionViwBG(for: playerCollection)
+        
         // Setting up the Picker Views
         // Builds Tier Picker
         tierPicker.delegate = self
@@ -48,17 +54,24 @@ class APLTableViewController: UITableViewController {
         tierTxt.inputAccessoryView = pickerToolbar
         seasonTxt.inputAccessoryView = pickerToolbar
         
-        // Sets fields ro a value
+        // Sets fields to a value
         tierTxt.text = apl.tier.description()
         seasonTxt.text = apl.season.description()
         
         // Updates the playerCountLbl
         updatePlayerCountLbl()
+        
+        seasonTxt.tintColor = SystemColor.backgroundColor()
+        tierTxt.tintColor = SystemColor.backgroundColor()
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = SystemColor.backgroundColor()
     }
     
     // MARK: - Objc
     @objc func cancelPicker() {
-        
+        view.endEditing(true)
     }
 
     /// When the different text fields, with pickers, are the first responder will help make sure that the correct
@@ -146,28 +159,44 @@ extension APLTableViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playerCell", for: indexPath) as! APLCollectionViewCell
-        cell.backgroundColor =  .yellow
-        cell.layer.cornerRadius = 8
         
         if apl.numOfPlayers.count < 7 && indexPath.row == apl.numOfPlayers.count {
             cell.playerLvlLbl.text = "Add Player"
-            cell.backgroundColor = .orange
             
-            return cell
+            return SystemColor.buildCollectionCell(cell: cell)
         } else {
             cell.playerLvlLbl.text = "\(apl.numOfPlayers[indexPath.row])"
             
-            return cell
+            return SystemColor.buildCollectionCell(cell: cell)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var errorMsg: Bool = false
+        var messageString: String = "The following are required to proceed:"
+        
+        if tierTxt.text == "No Tier" {
+            errorMsg = true
+            messageString += "\nTier"
+        }
+        
+        if seasonTxt.text == "No Season" {
+            errorMsg = true
+            messageString += "\nSeason"
+        }
+        
+        guard errorMsg == false else {
+            let alert: UIAlertController = Alert.createAlert(title: nil, message: messageString)
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         if apl.numOfPlayers.count < 7 && indexPath.row == apl.numOfPlayers.count {
             apl.addPlayer()
             playerCollection.reloadData()
             updatePlayerCountLbl()
         } else {
-            print("num of players count:", apl.numOfPlayers.count)
             if apl.numOfPlayers.count < 4 {
                 performSegue(withIdentifier: "addLevel", sender: nil)
             } else {
@@ -185,34 +214,10 @@ extension APLTableViewController: UICollectionViewDelegate, UICollectionViewData
                 
                 alert.addAction(addUser)
                 alert.addAction(deleteUser)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in print("Cancel") }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 
                 self.present(alert, animated: true, completion: nil)
             }
-            
-            
-            
-//            if indexPath.row < 3 {
-//                print("Selected")
-//            } else {
-//                let alert: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//
-//                let addUser: UIAlertAction = UIAlertAction(title: "Add Level", style: .default, handler: { _ in
-//                    self.performSegue(withIdentifier: "addLevel", sender: nil)
-//                })
-//
-//                let deleteUser: UIAlertAction = UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-//                    self.apl.deleteUser(at: indexPath.row)
-//                    self.playerCollection.reloadData()
-//                    self.updatePlayerCountLbl()
-//                })
-//
-//                alert.addAction(addUser)
-//                alert.addAction(deleteUser)
-//                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in print("Cancel") }))
-//
-//                self.present(alert, animated: true, completion: nil)
-//            }
         }
     }
 }
